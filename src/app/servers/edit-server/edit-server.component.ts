@@ -17,7 +17,9 @@ export class EditServerComponent implements OnInit, CanComponentDeactivate {
   allowEdit = false;
   changesSaved = false;
 
-  constructor(private serversService: ServersService, private route: ActivatedRoute, private router: Router) {}
+  constructor(private serversService: ServersService, private route: ActivatedRoute, private router: Router) {
+    let state = this.router.getCurrentNavigation().extras.state;
+  }
 
   ngOnInit() {
     console.log(this.route.snapshot.queryParams);

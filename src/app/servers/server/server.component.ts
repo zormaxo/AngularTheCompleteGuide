@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Data, Params, Router } from '@angular/router';
-
+import { ActivatedRoute, Data, Router } from '@angular/router';
 import { ServersService } from '../servers.service';
+
 
 @Component({
   selector: 'app-server',
@@ -26,6 +26,6 @@ export class ServerComponent implements OnInit {
   }
 
   onEdit() {
-    this.router.navigate(['edit'], { relativeTo: this.route, queryParamsHandling: 'preserve' });
+    this.router.navigate(['edit'], { relativeTo: this.route, queryParamsHandling: 'preserve', state: { name: 'Ömer' } });
   }
 }
