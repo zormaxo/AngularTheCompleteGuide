@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2">
-      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <form (ngSubmit)="onSubmit()" #f="ngForm" #o>
         <div id="user-data">
           <div class="mb-3">
             <label for="username">Username</label>
@@ -10,7 +10,7 @@
           <button class="btn btn-secondary" type="button">Suggest an Username</button>
           <div class="mb-3">
             <label for="email">Mail</label>
-            <input type="email" id="email" class="form-control" ngModel name="email" />
+            <input type="email" id="email" class="form-control" ngModel name="email" required email />
           </div>
         </div>
         <div class="mb-3">
@@ -20,7 +20,7 @@
             <option value="teacher">Your first teacher?</option>
           </select>
         </div>
-        <button class="btn btn-primary">Submit</button>
+        <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
       </form>
     </div>
   </div>
