@@ -1,9 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Post } from './post.model';
 import { PostsService } from './posts.service';
-import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +14,7 @@ export class AppComponent implements OnInit, OnDestroy {
   error = null;
   private errorSub: Subscription;
 
-  constructor(private http: HttpClient, private postsService: PostsService) {}
+  constructor(private postsService: PostsService) {}
 
   ngOnInit() {
     this.errorSub = this.postsService.error.subscribe((errorMessage) => {
