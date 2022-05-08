@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AccountService } from '../account.service';
 import { LoggingService } from '../logging.service';
 
@@ -8,11 +8,14 @@ import { LoggingService } from '../logging.service';
   styleUrls: ['./account.component.css'],
   // providers: [LoggingService],
 })
-export class AccountComponent {
+export class AccountComponent implements OnInit {
   @Input() account: { name: string; status: string };
   @Input() id: number;
 
   constructor(private loggingService: LoggingService, private accountService: AccountService) {}
+  ngOnInit(): void {
+    this.accountService.eventTest.subscribe((a) => console.log(a));
+  }
 
   onSetTo(status: string) {
     this.accountService.updateStatus(this.id, status);

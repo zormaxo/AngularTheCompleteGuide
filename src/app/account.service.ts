@@ -19,7 +19,8 @@ export class AccountService {
     },
   ];
 
-statusUpdated = new EventEmitter<string>();
+  statusUpdated = new EventEmitter<string>();
+  eventTest = new EventEmitter<string>();
 
   constructor(private logginService: LoggingService) {}
 
@@ -31,5 +32,9 @@ statusUpdated = new EventEmitter<string>();
   updateStatus(id: number, status: string) {
     this.accounts[id].status = status;
     this.logginService.logStatusChanges(status);
+  }
+
+  deleteAccount() {
+    this.accounts.pop();
   }
 }

@@ -17,4 +17,12 @@ export class NewAccountComponent {
     this.accountService.addAccount(accountName, accountStatus);
     // this.loggingService.logStatusChanges(accountStatus);
   }
+
+  onDeleteAccount() {
+    this.accountService.deleteAccount();
+  }
+
+  onEmitEvent() {
+    this.accountService.eventTest.emit('11111111111111');
+  }
 }
